@@ -1,0 +1,139 @@
+/*table{
+	text-align: center;
+	
+}
+tr{
+	margin:-5px;
+}
+tr.fila{
+	background: #F97C91;
+	color: #FFFFFF;
+	font-weight: bolder;
+}
+td.column1{
+	font-weight: bolder;	
+}
+td{
+	;
+	border:1px solid red ;
+}
+td a{
+	text-decoration: none;
+}
+td a:hover{
+	text-decoration: none;
+}
+table,td{
+	border: 1px solid black;
+}
+.btn{
+	background: transparent url('media/roundedge-gray-left.gif') no-repeat top left;
+	height: 50px; 
+	float:left;
+		
+}
+
+
+tr.fila-create td {		
+	padding: 5px;
+	
+	
+}
+tr.fila-create td input[type=text]{
+	box-shadow: 1px 1px 1px 2px #F97C91;
+	margin:5px;
+	width: 90%;
+}
+h2.title{
+	font-weight: bolder;
+	margin: 0px auto;
+	margin-bottom: 10px;
+}*/
+
+/*Estilos responsive para la tabla*/
+table, td,th {
+	border:2px solid black;
+}
+td, th, tr{
+	text-align: center;
+	padding-right: 12px !important;
+}
+
+th{
+	background: #F97C91;
+	color: #FFFFFF;
+	font-weight: bolder;
+	padding: 5px;
+
+}
+/*/////*/
+table{
+	width: 1200px;
+	height:300px;
+}
+.table-container{
+	overflow-x: auto;
+	overflow-y: 
+}
+.table-rwd{
+	min-width: 1200px;
+	
+}
+
+	tr:hover{
+		color: blue;
+		font-weight: bold;
+	}
+/*EFECTOS PARA FORMULARIO/*/
+input.botones{
+		height: 50px;
+		margin: 10px;
+		margin-top: 5px;
+		border: 1px solid black;
+		color: black;
+		padding: 2px 3px;
+		border: none;	
+	 	box-sizing: border-box;
+	 	transition: all 500ms ease;
+
+	}
+	
+input.camp-c[type="file"],input.camp-c[type="text"],input.camp-c[type="number"],input[type="date"]{
+	padding: 5px 50px !important;
+	border-radius: 10px !important;
+	padding: 0px !important;
+	margin-right: 4px !important;
+	text-align: center;
+	border: 1px solid blue;
+	box-shadow: 1px  1px 1px 0.1px blue;
+
+}
+input.camp-c[type="file"]{
+	max-width: 300px;
+}
+tr.fila-create td{
+	padding: 10px;
+}
+a:link {
+	text-decoration: none !important;
+
+}
+
+h4.subtitle{
+	color:white;
+	font-weight:bold;
+}
+
+img.img-mostrada{
+	width: 100px;
+	height: 100px;
+	 text-align: center;
+    margin: 5px 0px;
+    position: relative;
+    top: 15px;
+    border-radius: 30px;
+   
+
+
+
+
