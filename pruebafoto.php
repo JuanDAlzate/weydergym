@@ -11,7 +11,7 @@
 	<title>Prueab FOTO</title>
 </head>
 <body>
-	<form action="cargarejemplo.php"  method="POST" enctype="multipart/form-data">
+	<form action="editarfotoprueba.php"  method="POST" enctype="multipart/form-data">
 		
 
 		<input type="file" name="img" id="foto">

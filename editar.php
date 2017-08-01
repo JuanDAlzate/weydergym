@@ -73,25 +73,54 @@
 											 $tel=$_GET["xxx"];	
 											 $fot=$_GET["fot"];
 							 			 }
-							 								 								 	# 
- 								 }else{ 								 		
+							 								 								 	
+ 								 }else if(isset($_POST["btn-actualizar"])){ 								 		
 
- 								 		 $id=$_POST["id"];
- 								 		 $nom=$_POST["nom"];
- 								 		 $ape=$_POST["ape"];
- 								 		 $tel=$_POST["tel"];
+	 								 		 $id=$_POST["id"];
+	 								 		 $nom=$_POST["nom"];
+	 								 		 $ape=$_POST["ape"];
+	 								 		 $tel=$_POST["tel"];
+
+	 								 		 if(empty($_FILES["fotoActualizar"]["tmp_name"])){
+													$sql="UPDATE personas set nombre=:miNom, apellido=:miApe, telefono=:miTel WHERE identificacion=:miId";
+													$resultado=$base->prepare($sql);
+													$resultado->execute(array(":miId"=>$id,":miNom"=>$nom,":miApe"=>$ape,":miTel"=>$tel));
+													echo '<script type="text/javascript">alert("Actualizacion correcta sin editar foto"); 	                                 window.location="left-sidebar.php";
+																      </script>';
+
+											}else if(isset($_FILES["fotoActualizar"])){
+	 								 		 	$nombreImagen=$_FILES["fotoActualizar"]["name"];
+	 								 		 	$ruta=$_FILES["fotoActualizar"]["tmp_name"];
+												$destino="fotos/".$nombreImagen;
+
+												if (copy($ruta,$destino)){
+													$sql="UPDATE personas set nombre=:miNom, apellido=:miApe, telefono=:miTel, foto=:miFot WHERE identificacion=:miId";
+													$resultado=$base->prepare($sql);
+													if ($resultado) {
+														$resultado->execute(array(":miId"=>$id,":miNom"=>$nom,":miApe"=>$ape,":miTel"=>$tel,":miFot"=>$destino));
+														echo '<script type="text/javascript">alert("Actualizacion correcta"); 	                                 window.location="left-sidebar.php";
+																      </script>';
+													}else{
+														die("Error".mysqli_error($base));
+													}
+
+
+												}else{
+													echo '<script type="text/javascript">alert("No se ha copiado la imagen correctamente"); 	                                
+																      </script>';
+												}
+
+											} 
+
 
  								 		
-										 $sql="UPDATE personas set nombre=:miNom, apellido=:miApe, telefono=:miTel WHERE identificacion=:miId";
- 								 		 $resultado=$base->prepare($sql);
- 								 		 $resultado->execute(array(":miId"=>$id,":miNom"=>$nom,":miApe"=>$ape,":miTel"=>$tel));
- 								 		 header("Location:left-sidebar.php");
+										 
  								 }							 								 
 								 		 					 
 
 								 ?>
 							</header>
-							<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+							<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
 									<div class="row 50%">
 										<div class="4u"></div>
 										<div class="4u 12u(mobile)">
@@ -126,7 +155,7 @@
 										<div class="4u 12u(mobile)">
 											FOTO <br>
 											<img src="<?php echo $fot; ?>"  width="200px" height="200px" alt="" style="border-radius:10px;">
-											<input name="img" id="img" value="<?php echo $tel ?>" type="file" />
+											<input type="file" name="fotoActualizar" id="fotoActualizar"/>
 										</div>
 										<div class="4u"></div>
 									</div>

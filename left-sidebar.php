@@ -76,7 +76,6 @@
 														if (copy($ruta,$destino)) {
 
 															$sql="INSERT INTO personas (identificacion,nombre,apellido,telefono,foto) VALUES (:id,:nom,:ape,:tel,:fot)";
-
 															$resultado=$base->prepare($sql);
 															if ($resultado) {
 																$resultado->execute(array(":id"=>$id,":nom"=>$nom,":ape"=>$ape,":tel"=>$tel,":fot"=>$destino));
